@@ -13,6 +13,18 @@ import src.common.log as log
 import operator
 import csv
 
+import statsmodels.formula.api as sm
+import pandas as pd
+import matplotlib.pyplot as plt
+
+results = sm.ols(formula='Y ~ X1', data=df).fit()
+Y_pred = results.predict(df[["X1"]])
+residual = df["Y"].values-Y_pred
+plt.scatter(df[["X1"]],residual)
+plt.xlabel("X1 - a predictor")
+plt.ylabel("residual")
+plt.show()
+
 # TODO urllib.request to handle thrown exceptions <p>Error: HTTP Error 403: Forbidden</p>
 # TODO modify fold2set with optional args that spefify which fold merges into which set (i.e., currently hard coded).
 

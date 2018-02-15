@@ -58,6 +58,7 @@ def is_img(path):
     (filename, ext) = os.path.splitext(path)
     return ext.lower() in ['.jpg', '.jpeg', '.png', '.tif', '.tiff', '.pgm', '.ppm', '.gif', '.bmp']
 
+foo = 2
 
 def is_pickle(filename):
     """Is the file a pickle archive file"""
